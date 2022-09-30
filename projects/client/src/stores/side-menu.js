@@ -6,13 +6,18 @@ const sideMenu = atom({
     menu: [
       {
         icon: "Home",
-        pathname: "/",
+        pathname: "/dashboard/page-1",
         title: "Page 1",
       },
       {
         icon: "Home",
-        pathname: "/page-2",
+        pathname: "/dashboard/page-2",
         title: "Page 2",
+      },
+      {
+        icon: "Home",
+        pathname: "/dashboard/pm-merdeka",
+        title: "PM Merdeka",
       },
     ],
   },

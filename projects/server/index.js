@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import db from "./database/models";
 import { Sequelize } from "sequelize";
+import bearerToken from 'express-bearer-token';
 
 // #import routers
 import configRouter from './routers';
@@ -34,6 +35,7 @@ checkDB()
 
 app.use(cors());
 app.use(express.json());
+app.use(bearerToken());
 
 app.get("/api", (req, res) => {
   res.send("Hello world !");

@@ -1,7 +1,7 @@
 import db from "../database/models";
 const users = db.users;
 import { validationResult } from 'express-validator';
-
+import Crypto from 'crypto';
 
 export const getUsers = async (req, res, next) => {
     try {
@@ -43,6 +43,11 @@ export const auth = async (req, res, next) => {
 
 export const regis = async (req, res, next) => {
     try {
+        // Hashing password
+        req.body.password = Crypto.createHmac("sha256", process.env.HASH_KEY)
+            .update(req.body.password)
+            .digest("hex");
+            
         let result = await users.create(req.body);
 
         console.log(result);

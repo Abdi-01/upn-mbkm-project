@@ -1,8 +1,9 @@
 import express from "express";
 const router = express.Router();
 // #import Controller
-import { auth, getUsers } from '../controllers/userController';
+import { auth, getUsers, regis } from '../controllers/userController';
 import { check } from 'express-validator';
+import { checkUser } from "../middleware/validator";
 
 router.get('/', getUsers);
 router.post('/auth',
@@ -15,4 +16,5 @@ router.post('/auth',
         minNumbers: 1
     }).withMessage('Password Invalid Input ❌'), auth);
 
+router.post('/regis', checkUser, regis);
 export default router;

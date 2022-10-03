@@ -16,7 +16,8 @@ export const checkUser = async (req, res, next) => {
         if (!validation.isEmpty()) {
             res.status(400).send({
                 success: false,
-                msg: 'Validation invalid ❌'
+                msg: 'Validation invalid ❌',
+                error:validation.errors
             });
         } else {
             // Melanjutkan ke middleware/controller berikutnya

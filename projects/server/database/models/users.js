@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
         imgProfile: DataTypes.STRING
     }, {
         schema: 'data_sampling', // menentukan specific schema
-        timestamps: false // menonaktifkan field createdAt dan updatedAt
+        // timestamps: false // menonaktifkan field createdAt dan updatedAt
     })
 
     return users

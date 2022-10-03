@@ -4,7 +4,7 @@ const colorSchemeValue = atom({
   key: "colorSchemeValue",
   default:
     localStorage.getItem("colorScheme") === null
-      ? "default"
+      ? "theme-1"
       : localStorage.getItem("colorScheme"),
 });
 
@@ -12,7 +12,7 @@ const colorScheme = selector({
   key: "colorScheme",
   get: ({ get }) => {
     if (localStorage.getItem("colorScheme") === null) {
-      localStorage.setItem("colorScheme", "default");
+      localStorage.setItem("colorScheme", "theme-1");
     }
 
     return get(colorSchemeValue);

@@ -57,7 +57,7 @@ function Main() {
                   key={menu + menuKey}
                 ></li>
               ) : (
-                <li key={menu + menuKey}>
+                <li key={menu + menuKey} >
                   <SideMenuTooltip
                     tag="a"
                     content={menu.title}
@@ -74,9 +74,9 @@ function Main() {
                     }}
                   >
                     <div className="side-menu__icon">
-                      <Lucide icon={menu.icon} />
+                      <Lucide icon={menu.icon} className='text-gray-500'/>
                     </div>
-                    <div className="side-menu__title">
+                    <div className="side-menu__title text-gray-500">
                       {menu.title}
                       {menu.subMenu && (
                         <div

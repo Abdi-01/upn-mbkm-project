@@ -39,9 +39,9 @@
 
 /* Theme 1 colors */
 .theme-1 {
-    --color-primary: theme("colors.rgb.emerald.900");
+    --color-primary: theme("colors.rgb.upn.muda");
     --color-secondary: theme("colors.rgb.slate.200");
-    --color-success: theme("colors.rgb.emerald.600");
+    --color-success: theme("colors.rgb.upn.dark");
     --color-info: theme("colors.rgb.cyan.500");
     --color-warning: theme("colors.rgb.yellow.400");
     --color-pending: theme("colors.rgb.amber.500");
@@ -49,7 +49,7 @@
     --color-light: theme("colors.rgb.slate.100");
     --color-dark: theme("colors.rgb.slate.800");
     &.dark {
-        --color-primary: theme("colors.rgb.emerald.800");
+        --color-primary: theme("colors.rgb.upn.verydark");
     }
 }
 

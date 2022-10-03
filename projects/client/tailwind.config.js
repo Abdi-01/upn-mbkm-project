@@ -3,7 +3,7 @@ const {
   toRGB,
   withOpacityValue,
 } = require("@left4code/tw-starter/dist/js/tailwind-config-helper");
-
+// console.log(colors.current)
 module.exports = {
   content: [
     "./src/**/*.{php,html,js,jsx,ts,tsx,vue}",
@@ -15,6 +15,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        'upnprimary': '#E11D48',
         rgb: toRGB({
           inherit: colors.inherit,
           current: colors.current,
@@ -48,6 +49,12 @@ module.exports = {
           neutral: colors.neutral,
           gray: colors.gray,
           slate: colors.slate,
+          upn:{
+              'muda': '#D9E8FC',
+              'dark': '#2141A8',
+              'verydark': '#223B90',
+              'cloud': '#F1F5F8'
+          }
         }),
         primary: withOpacityValue("--color-primary"),
         secondary: withOpacityValue("--color-secondary"),

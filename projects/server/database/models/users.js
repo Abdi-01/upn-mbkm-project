@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
     const users = sequelize.define('users', {
-        iduser:{
-            type:DataTypes.INTEGER,
+        iduser: {
+            type: DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
@@ -10,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
         password: DataTypes.STRING,
         imgProfile: DataTypes.STRING
     }, {
-        schema: 'data_sampling'
+        schema: 'data_sampling', // menentukan specific schema
+        timestamps: false // menonaktifkan field createdAt dan updatedAt
     })
 
     return users

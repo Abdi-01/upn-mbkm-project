@@ -191,10 +191,10 @@ function Main(props) {
             />
           </DropdownToggle>
           <DropdownMenu className="w-56">
-            <DropdownContent className="bg-primary text-white">
+            <DropdownContent className="bg-primary text-gray-800">
               <DropdownHeader tag="div" className="!font-normal">
                 <div className="font-medium">{$f()[0].users[0].name}</div>
-                <div className="text-xs text-white/70 mt-0.5 dark:text-slate-500">
+                <div className="text-xs text-gray/10 mt-0.5 dark:text-slate-500">
                   {$f()[0].jobs[0]}
                 </div>
               </DropdownHeader>

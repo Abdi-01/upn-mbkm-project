@@ -4,8 +4,9 @@ const router = express.Router();
 import { auth, getUsers, regis } from '../controllers/userController';
 import { check } from 'express-validator';
 import { checkUser } from "../middleware/validator";
+import { readToken } from "../middleware/encript";
 
-router.get('/', getUsers);
+router.get('/', readToken, getUsers);
 router.post('/auth',
     check('username').notEmpty().isAlphanumeric(),
     check('password').notEmpty().isStrongPassword({

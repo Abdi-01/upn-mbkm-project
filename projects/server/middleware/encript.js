@@ -1,12 +1,13 @@
 import jwt from 'jsonwebtoken';
 
-export const createToken = (payload) => {
+export const createToken = (payload, expTime = "24h") => {
     return jwt.sign(payload, process.env.TOKEN_KEY, {
-        expiresIn: '1h'
+        expiresIn: expTime
     })
 }
 
 export const readToken = (req, res, next) => {
+    console.log("Check token :", req.token);
     jwt.verify(req.token, process.env.TOKEN_KEY, (err, decode) => {
         if (err) {
             res.status(401).send({
@@ -14,10 +15,18 @@ export const readToken = (req, res, next) => {
                 msg: "Not authenticate ❌"
             })
         }
+        console.log("output :", decode)
 
-        // hasil penerjemahan
-        req.dataToken = decode;
+        if (decode.role === 'admin') {
+            // hasil penerjemahan
+            req.dataToken = decode;
+            next()
+        } else {
+            res.status(401).send({
+                success: false,
+                msg: "Not authenticate to access API ❌"
+            })
+        }
 
-        next()
     })
 }

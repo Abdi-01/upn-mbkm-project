@@ -6,6 +6,7 @@ import { createToken } from '../middleware/encript';
 
 export const getUsers = async (req, res, next) => {
     try {
+        console.log(req.dataToken); // data from translate token
         let get = await users.findAll({ where: req.query });
         res.status(200).send({
             success: true,
@@ -34,7 +35,7 @@ export const auth = async (req, res, next) => {
                     username: req.body.username,
                     password: req.body.password
                 },
-                attributes: ['iduser', 'username', 'email', 'imgProfile']
+                attributes: ['iduser', 'username', 'email', 'imgProfile', 'role']
             })
 
             // 3. Generate token

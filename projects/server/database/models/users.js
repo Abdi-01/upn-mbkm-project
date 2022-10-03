@@ -8,7 +8,8 @@ module.exports = (sequelize, DataTypes) => {
         username: DataTypes.STRING,
         email: DataTypes.STRING,
         password: DataTypes.STRING,
-        imgProfile: DataTypes.STRING
+        imgProfile: DataTypes.STRING,
+        role: DataTypes.STRING
     }, {
         schema: 'data_sampling', // menentukan specific schema
         // timestamps: false // menonaktifkan field createdAt dan updatedAt

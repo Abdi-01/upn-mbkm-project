@@ -11,7 +11,7 @@ const VerifPage = (props) => {
     const onVerify = async () => {
         try {
 
-            let res = await axios.patch(API_URL + `/user-router/veriy`, {
+            let res = await axios.patch(API_URL + `/user-router/verify`, {
                 status: 'verified'
             }, {
                 headers: {
@@ -47,7 +47,7 @@ const VerifPage = (props) => {
                     <div className="intro-x text-lg mt-3">
                         Your link expired in 1 hour
                     </div>
-                    <button className="intro-x btn py-3 px-4 text-white border-white dark:border-darkmode-400 dark:text-slate-200 mt-10">
+                    <button type='button' onClick={onVerify} className="intro-x btn py-3 px-4 text-white border-white dark:border-darkmode-400 dark:text-slate-200 mt-10">
                         Verify Now
                     </button>
                 </div>

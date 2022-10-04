@@ -10,23 +10,24 @@ function Regis(props) {
     const [username, setUsername] = React.useState('');
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
+    const [check, setCheck] = React.useState(false);
 
     const onRegis = async () => {
         try {
-            if(username===''||email===''||password===''){
+            if (username === '' || email === '' || password === '') {
                 alert('Isi semua form ⚠️')
-            }else{
-                if(email.includes('@')){
+            } else {
+                if (email.includes('@')) {
                     let res = await axios.post(API_URL + `/user-router/regis`, {
                         username,
                         email,
                         password
                     })
-                    
+
                     if (res.data.success) {
                         alert(res.data.msg);
                     }
-                }else{
+                } else {
                     alert('Email salah ⚠️')
                 }
             }
@@ -103,6 +104,7 @@ function Regis(props) {
                                         id="remember-me"
                                         type="checkbox"
                                         className="border-2 border-white rounded-lg mr-2"
+                                        onChange={(e) => setCheck(e.target.checked)}
                                     />
                                     <label
                                         className="cursor-pointer select-none"
@@ -116,7 +118,7 @@ function Regis(props) {
                                     .
                                 </div>
                                 <div className="intro-x mt-5 xl:mt-8 text-center xl:text-right">
-                                    <button type='button' onClick={onRegis} className="btn btn-outline-secondary py-3 px-4 w-full xl:w-32 mt-3 xl:mt-0 ">
+                                    <button disabled={!check} type='button' onClick={onRegis} className="btn btn-outline-secondary py-3 px-4 w-full xl:w-32 mt-3 xl:mt-0 ">
                                         Register
                                     </button>
                                 </div>

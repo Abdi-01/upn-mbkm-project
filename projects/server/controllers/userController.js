@@ -86,3 +86,22 @@ export const regis = async (req, res, next) => {
         next(error)
     }
 }
+
+export const verify = async (req, res, next) => {
+    try {
+        let result = await users.update({
+            status: 'verified'
+        }, {
+            where: {
+                iduser: req.dataToken.iduser
+            }
+        })
+
+        res.status(200).send({
+            success:true,
+            msg:"Your account is verified now ✅"
+        })
+    } catch (error) {
+        next(error)
+    }
+}

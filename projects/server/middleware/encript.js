@@ -17,16 +17,7 @@ export const readToken = (req, res, next) => {
         }
         console.log("output :", decode)
 
-        if (decode.role === 'admin') {
-            // hasil penerjemahan
-            req.dataToken = decode;
-            next()
-        } else {
-            res.status(401).send({
-                success: false,
-                msg: "Not authenticate to access API ❌"
-            })
-        }
-
+        req.dataToken = decode;
+        next()
     })
 }

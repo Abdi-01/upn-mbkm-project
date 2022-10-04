@@ -8,12 +8,20 @@ import { transporterSMTP } from "../middleware/mailer";
 export const getUsers = async (req, res, next) => {
     try {
         console.log(req.dataToken); // data from translate token
-        let get = await users.findAll({ where: req.query });
-        res.status(200).send({
-            success: true,
-            message: "GET data success ✅",
-            data: get
-        })
+        if (req.dataToken.role === 'admin') {
+            // hasil penerjemahan
+            let get = await users.findAll({ where: req.query });
+            res.status(200).send({
+                success: true,
+                message: "GET data success ✅",
+                data: get
+            })
+        } else {
+            res.status(401).send({
+                success: false,
+                msg: "Not authenticate to access API ❌"
+            })
+        }
     } catch (error) {
         next(error);
     }

@@ -20,12 +20,18 @@ const VerifPage = (props) => {
             })
 
             if (res.data.success) {
+                router.push('/'); // redirect ke page tujuan
                 alert(res.data.msg)
             }
         } catch (error) {
             console.log(error)
         }
     }
+
+    // componentDidMount mode
+    // React.useEffect(() => {
+    //     onVerify();
+    // }, []);
 
     return <div>
         <div className="container">

@@ -89,9 +89,7 @@ export const regis = async (req, res, next) => {
 
 export const verify = async (req, res, next) => {
     try {
-        let result = await users.update({
-            status: 'verified'
-        }, {
+        let result = await users.update(req.body, {
             where: {
                 iduser: req.dataToken.iduser
             }

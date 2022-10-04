@@ -2,16 +2,26 @@ import React from 'react';
 import phoneIllustration from '../assets/images/phone-illustration.svg';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-
+import axios from 'axios';
+import { API_URL } from '../helper';
 const VerifPage = (props) => {
     let router = useRouter();
     const { query } = router;
 
-    const onVerify= async()=>{
+    const onVerify = async () => {
         try {
 
-            let res;
-            
+            let res = await axios.patch(API_URL + `/user-router/veriy`, {
+                status: 'verified'
+            }, {
+                headers: {
+                    'Authorization': `Bearer ${query._t}`
+                }
+            })
+
+            if (res.data.success) {
+                alert(res.data.msg)
+            }
         } catch (error) {
             console.log(error)
         }

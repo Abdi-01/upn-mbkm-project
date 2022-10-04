@@ -3,6 +3,7 @@ const users = db.users;
 import { validationResult } from 'express-validator';
 import Crypto from 'crypto';
 import { createToken } from '../middleware/encript';
+import { transporterSMTP } from "../middleware/mailer";
 
 export const getUsers = async (req, res, next) => {
     try {
@@ -35,7 +36,7 @@ export const auth = async (req, res, next) => {
                     username: req.body.username,
                     password: req.body.password
                 },
-                attributes: ['iduser', 'username', 'email', 'imgProfile', 'role']
+                attributes: ['iduser', 'username', 'email', 'imgProfile', 'role', 'status']
             })
 
             // 3. Generate token
@@ -63,7 +64,19 @@ export const regis = async (req, res, next) => {
 
         let result = await users.create(req.body);
 
-        console.log(result);
+        // Generate token
+        let token = createToken({ ...result.dataValues }, '1h');
+        // Mengirim email
+        await transporterSMTP.sendMail({
+            from: 'Admin',
+            to: req.body.email,
+            subject: 'Confirmation Register Account',
+            html: `<div>
+            <h3>Klik link dibawah ini untuk verifikasi akun <b>${req.body.username}</b></h3>
+            <a href='${process.env.FE_URL}/verification/${token}'>Klik disini</a>
+            </div>`
+        })
+
 
         res.status(200).send({
             success: true,

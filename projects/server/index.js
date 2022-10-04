@@ -4,6 +4,7 @@ import cors from "cors";
 import db from "./database/models";
 import { Sequelize } from "sequelize";
 import bearerToken from 'express-bearer-token';
+import { checkGMAIL, checkSMTP } from './middleware/mailer';
 
 // #import routers
 import configRouter from './routers';
@@ -31,7 +32,10 @@ const checkDB = async () => {
   }
 }
 
-checkDB()
+checkDB();
+
+checkSMTP();
+checkGMAIL();
 
 app.use(cors());
 app.use(express.json());

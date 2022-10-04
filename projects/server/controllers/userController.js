@@ -73,7 +73,7 @@ export const regis = async (req, res, next) => {
             subject: 'Confirmation Register Account',
             html: `<div>
             <h3>Klik link dibawah ini untuk verifikasi akun <b>${req.body.username}</b></h3>
-            <a href='${process.env.FE_URL}/verification/${token}'>Klik disini</a>
+            <a href='${process.env.FE_URL}/verification?_t=${token}'>Klik disini</a>
             </div>`
         })
 

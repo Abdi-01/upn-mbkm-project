@@ -1,3 +1,4 @@
+import React from 'react';
 import logoUrl from "../assets/images/logo.svg";
 // import logoMBKM from "@/assets/images/logo-mbkm.png";
 import illustrationUrl from "../assets/images/illustration.svg";
@@ -5,6 +6,17 @@ import Image from 'next/image'
 import Link from 'next/link';
 
 function Regis(props) {
+    const [username, setUsername] = React.useState('');
+    const [email, setEmail] = React.useState('');
+    const [password, setPassword] = React.useState('');
+
+    const onRegis = () => {
+        console.log({
+            username,
+            email,
+            password
+        });
+    }
 
     return (
         <>
@@ -54,16 +66,19 @@ function Regis(props) {
                                         type="text"
                                         className="intro-x login__input w-full py-3 px-4 block"
                                         placeholder="Username"
+                                        onChange={(e) => setUsername(e.target.value)}
                                     />
                                     <input
                                         type="text"
                                         className="intro-x login__input w-full py-3 px-4 block my-4"
                                         placeholder="Email"
+                                        onChange={(e) => setEmail(e.target.value)}
                                     />
                                     <input
                                         type="password"
                                         className="intro-x login__input w-full py-3 px-4 block"
                                         placeholder="Password"
+                                        onChange={(e) => setPassword(e.target.value)}
                                     />
                                 </div>
                                 <div className="intro-x flex items-center text-slate-400 dark:text-slate-400 mt-4 text-xs sm:text-sm">
@@ -84,7 +99,7 @@ function Regis(props) {
                                     .
                                 </div>
                                 <div className="intro-x mt-5 xl:mt-8 text-center xl:text-right">
-                                    <button className="btn btn-outline-secondary py-3 px-4 w-full xl:w-32 mt-3 xl:mt-0 ">
+                                    <button type='button' onClick={onRegis} className="btn btn-outline-secondary py-3 px-4 w-full xl:w-32 mt-3 xl:mt-0 ">
                                         Register
                                     </button>
                                 </div>

@@ -4,18 +4,35 @@ import logoUrl from "../assets/images/logo.svg";
 import illustrationUrl from "../assets/images/illustration.svg";
 import Image from 'next/image'
 import Link from 'next/link';
-
+import axios from 'axios';
+import { API_URL } from '../helper';
 function Regis(props) {
     const [username, setUsername] = React.useState('');
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
 
-    const onRegis = () => {
-        console.log({
-            username,
-            email,
-            password
-        });
+    const onRegis = async () => {
+        try {
+            if(username===''||email===''||password===''){
+                alert('Isi semua form ⚠️')
+            }else{
+                if(email.includes('@')){
+                    let res = await axios.post(API_URL + `/user-router/regis`, {
+                        username,
+                        email,
+                        password
+                    })
+                    
+                    if (res.data.success) {
+                        alert(res.data.msg);
+                    }
+                }else{
+                    alert('Email salah ⚠️')
+                }
+            }
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     return (

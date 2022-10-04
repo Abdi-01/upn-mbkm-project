@@ -80,8 +80,7 @@ export const regis = async (req, res, next) => {
 
         res.status(200).send({
             success: true,
-            msg: 'Regis success ✅',
-            result
+            msg: 'Regis success ✅'
         })
     } catch (error) {
         next(error)

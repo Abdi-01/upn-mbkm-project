@@ -1,8 +1,21 @@
 import React from 'react';
 import phoneIllustration from '../assets/images/phone-illustration.svg';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 const VerifPage = (props) => {
+    let router = useRouter();
+    const { query } = router;
+
+    const onVerify= async()=>{
+        try {
+
+            let res;
+            
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     return <div>
         <div className="container">
@@ -25,7 +38,7 @@ const VerifPage = (props) => {
                         Your link expired in 1 hour
                     </div>
                     <button className="intro-x btn py-3 px-4 text-white border-white dark:border-darkmode-400 dark:text-slate-200 mt-10">
-                       Verify Now
+                        Verify Now
                     </button>
                 </div>
             </div>

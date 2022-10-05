@@ -1,10 +1,13 @@
 import express from "express";
 const router = express.Router();
 // #import Controller
-import { auth, getUsers, regis, verify } from '../controllers/userController';
+import { auth, editImg, getUsers, regis, verify } from '../controllers/userController';
 import { check } from 'express-validator';
 import { checkUser } from "../middleware/validator";
 import { readToken } from "../middleware/encript";
+import { uploader } from "../middleware/uploader";
+
+const upload = uploader('/imgProfile', 'PROFILE').array('images', 1);
 
 router.get('/', readToken, getUsers);
 router.patch('/verify', readToken, verify);
@@ -19,4 +22,7 @@ router.post('/auth',
     }).withMessage('Password Invalid Input ❌'), auth);
 
 router.post('/regis', checkUser, regis);
+
+router.patch('/edit-profile', readToken, upload, editImg);
+
 export default router;

@@ -104,8 +104,26 @@ export const verify = async (req, res, next) => {
         })
 
         res.status(200).send({
-            success:true,
-            msg:"Your account is verified now ✅"
+            success: true,
+            msg: "Your account is verified now ✅"
+        })
+    } catch (error) {
+        next(error)
+    }
+}
+
+export const editImg = async (req, res, next) => {
+    try {
+        let result = await users.update({
+            imgProfile: ''
+        }, {
+            where: {
+                iduser: req.dataToken.iduser
+            }
+        })
+        res.status(200).send({
+            success: true,
+            msg: "Upload image success ✅"
         })
     } catch (error) {
         next(error)

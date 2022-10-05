@@ -37,6 +37,7 @@ checkDB();
 checkSMTP();
 checkGMAIL();
 
+app.use(express.static('./public')); // mengakses directory public penyimpanan gambar melalui url
 app.use(cors());
 app.use(express.json());
 app.use(bearerToken());

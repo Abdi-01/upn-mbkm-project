@@ -115,7 +115,7 @@ export const verify = async (req, res, next) => {
 export const editImg = async (req, res, next) => {
     try {
         let result = await users.update({
-            imgProfile: ''
+            imgProfile: `/imgProfile/${req.files[0].filename}`
         }, {
             where: {
                 iduser: req.dataToken.iduser

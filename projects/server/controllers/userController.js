@@ -4,6 +4,7 @@ import { validationResult } from 'express-validator';
 import Crypto from 'crypto';
 import { createToken } from '../middleware/encript';
 import { transporterSMTP } from "../middleware/mailer";
+import fs from "fs";
 
 export const getUsers = async (req, res, next) => {
     try {
@@ -126,6 +127,8 @@ export const editImg = async (req, res, next) => {
             msg: "Upload image success ✅"
         })
     } catch (error) {
+        // #remove file when error
+        fs.unlinkSync(`/imgProfile/${req.files[0].filename}`);
         next(error)
     }
 }

@@ -1,0 +1,20 @@
+{
+    "ButtonLng": {
+        "title": "ID"
+    },
+    "SignInPage": {
+        "title": "Sign In",
+        "form": {
+            "email": "Email",
+            "password": "Password"
+        },
+        "content": {
+            "checkBox": "Remember me",
+            "forgot": "Forgot Password ?"
+        },
+        "button": {
+            "signIn": "Sign In",
+            "signUp": "Sign Up"
+        }
+    }
+}

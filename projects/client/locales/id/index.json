@@ -1,0 +1,20 @@
+{
+    "ButtonLng": {
+        "title": "EN"
+    },
+    "SignInPage": {
+        "title": "Masuk",
+        "form": {
+            "email": "Email",
+            "password": "Kata Sandi"
+        },
+        "content": {
+            "checkBox": "Ingat saya",
+            "forgot": "Lupa Kata Sandi ?"
+        },
+        "button": {
+            "signIn": "Masuk",
+            "signUp": "Daftar"
+        }
+    }
+}

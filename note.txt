@@ -1,0 +1,15 @@
+// Multilanguage modules
+1. Install
+npm run install:client i18next
+npm run install:client react-i18next
+npm run install:client i18next-browser-languagedetector
+
+2. next.config.js
+nextConfig={
+    ...,
+    i18n: {
+    locales: ['id', 'en'],
+    defaultLocale: 'id',
+    localeDetection: false
+    }
+}

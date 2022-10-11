@@ -6,7 +6,11 @@ import Image from 'next/image'
 import Link from 'next/link';
 import axios from 'axios';
 import { API_URL } from '../helper';
+import Meta from '../components/Meta';
+import { useRouter } from 'next/router';
+
 function Regis(props) {
+    const router = useRouter();
     const [username, setUsername] = React.useState('');
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
@@ -17,7 +21,7 @@ function Regis(props) {
     React.useEffect(() => {
         setLoading(false)
     }, [success])
-    
+
     const onRegis = async () => {
         try {
             if (username === '' || email === '' || password === '') {
@@ -34,6 +38,7 @@ function Regis(props) {
                     if (res.data.success) {
                         setSuccess(res.data.success)
                         alert(res.data.msg);
+                        router.push('/'); // Reidrect pindah ke login page
                     }
                 } else {
                     alert('Email salah ⚠️')
@@ -46,6 +51,7 @@ function Regis(props) {
 
     return (
         <>
+            <Meta title="Create your account" />
             <div className="bg-primary">
                 <div className="container sm:px-10">
                     <div className="block xl:grid grid-cols-2 gap-4">

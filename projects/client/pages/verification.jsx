@@ -32,35 +32,65 @@ const VerifPage = (props) => {
     // React.useEffect(() => {
     //     onVerify();
     // }, []);
-
-    return <div>
-        <div className="container">
-            {/* BEGIN: Error Page */}
-            <div className="error-page flex flex-col lg:flex-row items-center justify-center h-screen text-center lg:text-left">
-                <div className="-intro-x lg:mr-20">
-                    <Image
-                        src={phoneIllustration}
-                        alt="Midone Tailwind HTML Admin Template"
-                        width="360px"
-                        height="360px"
-                    />
-                </div>
-                <div className="text-white mt-10 lg:mt-0">
-                    <div className="intro-x text-4xl font-medium">Verified your account</div>
-                    <div className="intro-x text-xl lg:text-3xl font-medium mt-5">
-                        Welcome to dashboard.
+    if (query._t) { // Jika ada token pada query url, ditampilkan button verifikasi
+        return <div>
+            <div className="container">
+                {/* BEGIN: Error Page */}
+                <div className="error-page flex flex-col lg:flex-row items-center justify-center h-screen text-center lg:text-left">
+                    <div className="-intro-x lg:mr-20">
+                        <Image
+                            src={phoneIllustration}
+                            alt="Midone Tailwind HTML Admin Template"
+                            width="360px"
+                            height="360px"
+                        />
                     </div>
-                    <div className="intro-x text-lg mt-3">
-                        Your link expired in 1 hour
+                    <div className="text-white mt-10 lg:mt-0">
+                        <div className="intro-x text-4xl font-medium">Verified your account</div>
+                        <div className="intro-x text-xl lg:text-3xl font-medium mt-5">
+                            Welcome to dashboard.
+                        </div>
+                        <div className="intro-x text-lg mt-3">
+                            Your link expired in 1 hour
+                        </div>
+                        <button type='button' onClick={onVerify} className="intro-x btn py-3 px-4 text-white border-white dark:border-darkmode-400 dark:text-slate-200 mt-10">
+                            Verify Now
+                        </button>
                     </div>
-                    <button type='button' onClick={onVerify} className="intro-x btn py-3 px-4 text-white border-white dark:border-darkmode-400 dark:text-slate-200 mt-10">
-                        Verify Now
-                    </button>
                 </div>
+                {/* END: Error Page */}
             </div>
-            {/* END: Error Page */}
         </div>
-    </div>
+    } else { // Jika ada tidak token pada query url, ditampilkan button request verifikasi ulang
+        return <div>
+            <div className="container">
+                {/* BEGIN: Error Page */}
+                <div className="error-page flex flex-col lg:flex-row items-center justify-center h-screen text-center lg:text-left">
+                    <div className="-intro-x lg:mr-20">
+                        <Image
+                            src={phoneIllustration}
+                            alt="Midone Tailwind HTML Admin Template"
+                            width="360px"
+                            height="360px"
+                        />
+                    </div>
+                    <div className="text-white mt-10 lg:mt-0">
+                        <div className="intro-x text-4xl font-medium">Please, verification your account first ⚠️</div>
+                        <div className="intro-x text-xl lg:text-3xl font-medium mt-5">
+                            Check your email for verification link
+                        </div>
+                        <div className="intro-x text-lg mt-3">
+                            Or you want to request verification again ?
+                        </div>
+                        <button type='button' className="intro-x btn py-3 px-4 text-white border-white dark:border-darkmode-400 dark:text-slate-200 mt-10">
+                            Request New Verification
+                        </button>
+                    </div>
+                </div>
+                {/* END: Error Page */}
+            </div>
+        </div>
+    }
 }
 
 export default VerifPage;

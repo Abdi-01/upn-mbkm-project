@@ -4,7 +4,7 @@ import Link from "next/link";
 import logoUrl from "../../assets/images/logo.svg";
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { MdAccountCircle, MdHome } from 'react-icons/md'
+import { MdAccountCircle, MdHome, MdInfo } from 'react-icons/md'
 function Main(props) {
     const { pathname } = useRouter();
 
@@ -59,6 +59,22 @@ function Main(props) {
                                         </div>
                                         <div className="side-menu__title">
                                             Profile
+                                        </div>
+                                    </a>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href='/dashboard/information'>
+                                    <a
+                                        className={`side-menu ${pathname.includes('information') && 'side-menu--active'
+                                            }`}
+                                        style={{ backgroundColor: pathname.includes('information') && '#F1F5F8' }}
+                                    >
+                                        <div className="side-menu__icon">
+                                            <MdInfo size={24}/>
+                                        </div>
+                                        <div className="side-menu__title">
+                                            Information
                                         </div>
                                     </a>
                                 </Link>

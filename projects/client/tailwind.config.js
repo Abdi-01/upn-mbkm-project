@@ -5,12 +5,11 @@ const { toRGB, withOpacityValue } = require('@left4code/tw-starter/dist/js/tailw
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
-    "./base-components/**/*.{js,ts,jsx,tsx}"
+    "./components/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {
       colors: {
-        'upnprimary': '#E11D48',
         rgb: toRGB({
           inherit: colors.inherit,
           current: colors.current,

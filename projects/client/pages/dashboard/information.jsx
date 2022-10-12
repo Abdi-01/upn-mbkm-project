@@ -1,3 +1,4 @@
+// Pembahasan tgl 11 Oktober 2022
 import React from 'react';
 import Meta from '../../components/Meta';
 

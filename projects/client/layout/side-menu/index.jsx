@@ -1,10 +1,11 @@
+// Pembahasan tgl 07 Oktober 2022
 import { useState, useEffect } from "react";
 import Link from "next/link";
-// import { Lucide } from "../../base-components";
 import logoUrl from "../../assets/images/logo.svg";
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { MdAccountCircle, MdHome, MdInfo } from 'react-icons/md'
+
 function Main(props) {
     const { pathname } = useRouter();
 
@@ -39,7 +40,7 @@ function Main(props) {
                                         style={{ backgroundColor: pathname.includes('pm-merdeka') && '#F1F5F8' }}
                                     >
                                         <div className="side-menu__icon">
-                                            <MdHome size={24}/>
+                                            <MdHome size={24} />
                                         </div>
                                         <div className="side-menu__title">
                                             PM-Merdeka
@@ -50,12 +51,11 @@ function Main(props) {
                             <li>
                                 <Link href='/dashboard/profile'>
                                     <a
-                                        className={`side-menu ${pathname.includes('profile') && 'side-menu--active'
-                                            }`}
+                                        className={`side-menu ${pathname.includes('profile') && 'side-menu--active'}`}
                                         style={{ backgroundColor: pathname.includes('profile') && '#F1F5F8' }}
                                     >
                                         <div className="side-menu__icon">
-                                            <MdAccountCircle size={24}/>
+                                            <MdAccountCircle size={24} />
                                         </div>
                                         <div className="side-menu__title">
                                             Profile
@@ -71,7 +71,7 @@ function Main(props) {
                                         style={{ backgroundColor: pathname.includes('information') && '#F1F5F8' }}
                                     >
                                         <div className="side-menu__icon">
-                                            <MdInfo size={24}/>
+                                            <MdInfo size={24} />
                                         </div>
                                         <div className="side-menu__title">
                                             Information

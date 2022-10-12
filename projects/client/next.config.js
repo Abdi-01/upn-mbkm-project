@@ -3,7 +3,7 @@ const runtimeCaching = require("next-pwa/cache");
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  i18n: {
+  i18n: { // Pembahasan tgl 07 Oktober 2022
     locales: ['id', 'en'],
     defaultLocale: 'id',
     localeDetection: false

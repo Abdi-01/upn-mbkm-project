@@ -1,3 +1,4 @@
+// Pembahasan tgl 07 Oktober 2022
 import React from 'react';
 import { useRouter } from 'next/router';
 import i18next from '../i18n';

@@ -24,6 +24,34 @@ const Main = (props) => {
         getData();
     }, []);
 
+    const printData = () => {
+        return data.map((value, idx) => {
+            return <tr key={value.idmerdeka} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                <th scope="row" className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {idx + 1}
+                </th>
+                <td className="py-4 px-6">
+                    {value.type}
+                </td>
+                <td className="py-4 px-6">
+                    {value.mahasiswa}
+                </td>
+                <td className="py-4 px-6">
+                    {value.kode_jadwal}
+                </td>
+                <td className="py-4 px-6">
+                    {value.mk_host}
+                </td>
+                <td className="py-4 px-6">
+                    {value.sks}
+                </td>
+                <td className="py-4 px-6">
+                    {value.nilai}
+                </td>
+            </tr>
+        })
+    }
+
     return <>
         <Meta title="PM-Merdeka | UPN" />
         <div className='container p-5'>
@@ -54,6 +82,9 @@ const Main = (props) => {
                                     Kode Jadwal
                                 </th>
                                 <th scope="col" className="py-3 px-6">
+                                    MK Host
+                                </th>
+                                <th scope="col" className="py-3 px-6">
                                     SKS
                                 </th>
                                 <th scope="col" className="py-3 px-6">
@@ -61,6 +92,9 @@ const Main = (props) => {
                                 </th>
                             </tr>
                         </thead>
+                        <tbody>
+                            {/* Menjalankan fungsi printData */}
+                        </tbody>
                     </table>
                 </div>
             </div>

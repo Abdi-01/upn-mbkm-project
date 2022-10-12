@@ -58,7 +58,6 @@ export const auth = async (req, res, next) => {
                 data: { ...login[0].dataValues, token }
             })
         }
-
     } catch (error) {
         next(error);
     }
@@ -71,6 +70,7 @@ export const regis = async (req, res, next) => {
             .update(req.body.password)
             .digest("hex");
 
+        // Penyimpanan database
         let result = await users.create(req.body);
 
         // Generate token
@@ -85,7 +85,6 @@ export const regis = async (req, res, next) => {
             <a href='${process.env.FE_URL}/verification?_t=${token}'>Klik disini</a>
             </div>`
         })
-
 
         res.status(200).send({
             success: true,

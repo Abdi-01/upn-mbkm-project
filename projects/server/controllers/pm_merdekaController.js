@@ -9,7 +9,7 @@ export const getData = async (req, res, next) => {
         res.status(200).send({
             success: true,
             message: "GET data success ✅",
-            data: get
+            data_pmmerdeka: get
         })
 
     } catch (error) {

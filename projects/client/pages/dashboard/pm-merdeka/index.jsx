@@ -26,8 +26,8 @@ const Main = (props) => {
 
     const printData = () => {
         return data.map((value, idx) => {
-            return <tr key={value.idmerdeka} className="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                <th scope="row" className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+            return <tr key={value.idmerdeka} className="bg-white border-b">
+                <th scope="row" className="py-4 px-6 font-medium whitespace-nowrap">
                     {idx + 1}
                 </th>
                 <td className="py-4 px-6">
@@ -94,6 +94,7 @@ const Main = (props) => {
                         </thead>
                         <tbody>
                             {/* Menjalankan fungsi printData */}
+                            {printData()}
                         </tbody>
                     </table>
                 </div>

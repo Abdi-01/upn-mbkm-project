@@ -4,9 +4,16 @@ const pm_merdekas = db.pm_merdekas;
 export const getData = async (req, res, next) => {
     try {
 
-        console.log(req.query)
-
-        let get = await pm_merdekas.findAll();
+        let get;
+        if (JSON.stringify(req.query) == '{}') {
+            get = await pm_merdekas.findAll();
+        } else {
+            get = await pm_merdekas.findAll({
+                where: {
+                    [req.query.type]: req.query.value
+                }
+            });
+        }
 
         res.status(200).send({
             success: true,

@@ -71,11 +71,15 @@ const Main = (props) => {
                 </div>
                 <hr className='my-5' style={{ border: '1.5px solid black' }} />
                 <div id='filter-data' className='flex p-5'>
-                    <div className='w-1/5'>
+                    <div className='w-1/4'>
                         <label for="website-admin" className="block mb-2 text-sm font-medium text-gray-900">Cari berdasarkan</label>
                         <div className="flex">
                             <span className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 rounded-l-md border border-r-0 border-gray-300">
-                                
+                                <select className="bg-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5">
+                                    <option value="type">Type</option>
+                                    <option value="mahasiswa">Mahasiswa</option>
+                                    <option value="kode_jadwal">Kode Jadwal</option>
+                                </select>
                             </span>
                             <input type="text" id="website-admin"
                                 className="rounded-none rounded-r-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5"

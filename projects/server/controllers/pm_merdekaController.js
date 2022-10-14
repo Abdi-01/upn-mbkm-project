@@ -4,6 +4,8 @@ const pm_merdekas = db.pm_merdekas;
 export const getData = async (req, res, next) => {
     try {
 
+        console.log(req.query)
+
         let get = await pm_merdekas.findAll();
 
         res.status(200).send({

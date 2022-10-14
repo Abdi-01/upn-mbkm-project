@@ -18,8 +18,15 @@ const Main = (props) => {
     // Menyiapkan fungsi untuk get data dari API saat pertama kali page dirender
     const getData = async () => {
         try {
-            let res = await axios.get(API_URL + `/pm-merdeka/data`);
-            setData(res.data.data_pmmerdeka)
+            let res;
+            if (searchValue == '') {
+                // Get all data
+                res = await axios.get(API_URL + `/pm-merdeka/data`);
+            } else {
+                // Get data by filter
+                res = await axios.get(API_URL + `/pm-merdeka/data?type=${searchParam}&value=${searchValue}`);
+            }
+            setData(res.data.data_pmmerdeka);
         } catch (error) {
             console.log(error);
         }
@@ -27,7 +34,7 @@ const Main = (props) => {
 
     React.useEffect(() => {
         getData();
-    }, []);
+    }, [searchValue, searchParam]);
 
     const printData = () => {
         return data.map((value, idx) => {

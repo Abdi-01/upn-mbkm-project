@@ -64,6 +64,11 @@ const Main = (props) => {
         })
     }
 
+    const onRefresh = () => {
+        setSearchParam('type');
+        setSearchValue('');
+    }
+
     return <>
         <Meta title="PM-Merdeka | UPN" />
         <div className='container p-5'>
@@ -76,7 +81,7 @@ const Main = (props) => {
                         <button type="button" className="text-white flex items-center bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             <HiPrinter size={24} className="mr-3" /> Print
                         </button>
-                        <button type="button" onClick={getData} className="text-white flex items-center bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <button type="button" onClick={onRefresh} className="text-white flex items-center bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             <HiRefresh size={24} className="mr-3" /> Refresh
                         </button>
                     </div>
